@@ -102,7 +102,7 @@
                 {
                     echo ("<tr>");
                     echo("<td>". $user_data['idlivros']."</td>");
-                    echo("<td><img src =". $user_data['imagem']."alt='Image' height='100' width='100%'></td>");
+                    echo("<td><img src =". $user_data['imagem']." height='100' width='100'></td>");
                     echo("<td>". $user_data['titulo']."</td>");
                     echo("<td>". $user_data['sinopse']."</td>");
                     echo("<td><a class='btn btn-sm btn-primary' href='editlivro.php?id=$user_data[idlivros]'>

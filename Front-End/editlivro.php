@@ -1,13 +1,13 @@
 <?php
     session_start();
     include_once('./BD/config.php');
-    if((!isset($_SESSION['user'])== true)and (!isset($_SESSION['password'])==true))
+    if((!isset($_SESSION['email'])== true)and (!isset($_SESSION['senha'])==true))
     {
-        unset($_SESSION['user']);
-        unset($_SESSION['password']);
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
         header("location: login.php");
     }
-    $logado = $_SESSION['user'];
+    $logado = $_SESSION['email'];
 
     if(!empty($_GET['id']))
     {
@@ -30,8 +30,6 @@
         {
             header('Location : index.php');
         }
-    }else{
-        echo "tome";
     }
 ?>
 <!DOCTYPE html>

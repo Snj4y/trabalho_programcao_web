@@ -1,5 +1,6 @@
-<?php 
+<?php
     include_once('config.php');
+    session_start();
 
     if(isset($_POST['update']))
     {
@@ -15,6 +16,12 @@
         $path_s = $path . $new_file_name . "." . $extensao;
 
         $sqlUpdate = "UPDATE livros SET titulo ='$product_name', sinopse='$product_price', imagem='$product_image' WHERE idlivros='$idlivros'";
+
+        $arq = fopen("Log.txt", "a+");              //Gravando as informações de edição de livros em arquivo .txt
+        date_default_timezone_set('America/Sao_Paulo');
+        $agora = date('d/m/Y H:i');
+        fwrite($arq, "Livro ".$product_name." alterado por ".$_SESSION['email']." ás ".$agora."\n");
+        fclose($arq); 
 
         $result = $conexao->query($sqlUpdate);
     }
