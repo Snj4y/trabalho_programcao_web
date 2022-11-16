@@ -1,6 +1,6 @@
 <?php
     session_start();
-    
+ 
     if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password']))
     {
         include_once('config.php');
@@ -10,7 +10,7 @@
         $sql = "SELECT * FROM login WHERE email = '$email' and senha = '$senha'";
 
         $result = $conexao->query($sql);
-
+        
         if(mysqli_num_rows($result) < 1)
         {
             unset($_SESSION['email']);
@@ -18,9 +18,16 @@
             header('location: ../index.html');  
         }
         else
-        {
-            $_SESSION['email'] = $email;
-            $_SESSION['senha'] = $senha;                    
+        {   
+            $arq = fopen("Log.txt", "a+");              //Gravando as informações de login em arquivo .txt
+            date_default_timezone_set('America/Sao_Paulo');
+            $agora = date('d/m/Y H:i');
+            fwrite($arq, "Login realizado pelo email: ".$email." ás ".$agora."\n");
+            fclose($arq);          
+
+            $_SESSION['email'] = $email;    //Definindo as informações
+            $_SESSION['senha'] = $senha;
+                                
             header('location: ../biblioteca.php');
         }
     }

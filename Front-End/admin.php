@@ -7,10 +7,10 @@
         unset($_SESSION['senha']);
         header("location: login.php");
     }
-    if($_SESSION['role'] != 3){
+    /*if($_SESSION['role'] != 3){
         header("location: index.html");
-    }
-    $logado = $_SESSION['user'];
+    }*/
+    $logado = $_SESSION['email'];
 
     $sql = "SELECT * FROM livros";
 
