@@ -9,11 +9,11 @@
 
     //if($conexao->connect_errno)
     //{
-        //echo "erro ";
+    //    echo "erro ";
     //}
     //else
     //{
-       //echo "conexao bem sucessedida";
+    //   echo "conexao bem sucessedida";
     //}
     
 ?>
