@@ -80,24 +80,43 @@
             <label for="remember-me"> Lembrar-se</label>
         </div>
         <input type="submit" value="sign in" class="btn">
-        <p>Esqueceu a senha ? <a href="#">click aqui</a></p>
+        <p>Esqueceu a senha ? <a href="recuperar.html">click aqui</a></p>
         <p>Não tem uma conta ? <a href="cadastro.html">crie uma</a></p>
     </form>
 
 </div>
-<section class="re">
-    <div class="inf">
-        <div class="digi">
-            <h3>DIGITE O EMAIL DA CONTA</h3>
+<section class="perfil">
+    <div class="card-container">
+    <div class="top-image"></div>
+
+    <div class="round-image"></div>
+
+    <div class="description">
+
+        <div class="content">
+            <h1>Ana Carolina</h1>
+            <h3>anacarolina@email.com</h3>
+            <h3>Data de nascimento 18/04/1998</h3>
+            <h3>Cel 5519654851428</h3>
+            <h3>Sexo Feminino</h3>
+            <h3>Role Usuário</h3>
+            <div class="bio">
+                <p>Nós aceitamos o amor que achamos que merecemos.</p>
+            </div>
         </div>
-        <div class="input-box">
-            <input id="email" type="text" name="email"required>
+
+        <div class="icon-buttons">
+            <button><a href="#"><img src="image/FB.png" alt=""></a></button>
+            <button><a href="#"><img src="image/TW.png" alt=""></a></button>
+            <button><a href="#"><img src="image/IG.png" alt=""></a></button>
         </div>
-        <div class="continue-button">
-            <button><a href="#">Enviar</a> </button>
+        <div class="btnperfil">
+            <a href="admin_update.php?edit=<?php echo $row['id']; ?>" class="btn"> <i class="fas fa-edit"></i> editar </a>
         </div>
     </div>
+    </div>
 </section>
+
 <section class="footer">
 
     <div class="box-container">
@@ -124,7 +143,7 @@
 
         <div class="box">
             <h3>extra links</h3>
-            <a href="perfil.html"> <i class="fas fa-arrow-right"></i> perfil </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> perfil </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> favoritos </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> política de privacidade </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> metodos de pagamento </a>
@@ -160,6 +179,7 @@
 <div class="loader-container">
     <img src="image/loader-img.gif" alt="">
 </div>
+
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 

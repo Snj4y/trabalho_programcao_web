@@ -15,13 +15,27 @@
         {
             unset($_SESSION['email']);
             unset($_SESSION['senha']);
-            header('location: ../index.html');
+            echo "<script>
+                var resultado = confirm('tome');
+                if (resultado == true) {
+                    <?php 
+                        header('location: ../index.html'); 
+                    ?>
+                }
+                else{
+                    
+                }
+            </script>";   
+            //sleep(3);                          
+            //header('location: ../index.html');
+            //echo "<script>alert('Login não efetuado')</script>";   
         }
         else
         {
             $_SESSION['email'] = $email;
-            $_SESSION['password'] = $password;
-            header('location: ../tome');
+            $_SESSION['password'] = $password;                      
+            //header('javascript:alert("Email enviado com Sucesso!"); location: ../index.html');
+            echo "<script>alert('Login efetuado')</script>";
         }
     }
     else

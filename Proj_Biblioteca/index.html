@@ -43,7 +43,6 @@
             <a href="#home">Inicio</a>
             <a href="#featured">Populares</a>
             <a href="#arrivals">Novos</a>
-            <a href="biblioteca.html">Biblioteca</a>
             <a href="#reviews">Reviews</a>
             <a href="#blogs">blogs</a>
         </nav>
@@ -71,7 +70,7 @@
 
     <form action="./BD/testelog.php" method="post">
         <h3>Login</h3>
-        <span>Usuário</span>
+        <span>Email</span>
         <input type="email" name="email" class="box" placeholder="digite o email" id="email">
         <span>Senha</span>
         <input type="password" name="password" class="box" placeholder="digite a senha" id="password">
@@ -79,7 +78,7 @@
             <input type="checkbox" name="" id="remember-me">
             <label for="remember-me"> Lembrar-se</label>
         </div>
-        <input type="submit" name="submit" value="sign in" class="btn">
+        <input type="submit" value="sign in" class="btn" name="submit" id="submit">
         <p>Esqueceu a senha ? <a href="recuperar.html">click aqui</a></p>
         <p>Não tem uma conta ? <a href="cadastro.html">crie uma</a></p>
     </form>
@@ -119,6 +118,14 @@
 <!-- icons section starts  -->
 
 <section class="icons-container">
+
+    <div class="icons">
+        <i class="fas fa-shipping-fast"></i>
+        <div class="content">
+            <h3>versão física</h3>
+            <p>para aquele livro que você amou</p>
+        </div>
+    </div>
 
     <div class="icons">
         <i class="fas fa-lock"></i>
@@ -737,14 +744,13 @@
             <a href="#"> <i class="fas fa-arrow-right"></i> inicio </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> populares </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> novos </a>
-            <a href="biblioteca.html"> <i class="fas fa-arrow-right"></i> biblioteca </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> reviews </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> blogs </a>
         </div>
 
         <div class="box">
             <h3>extra links</h3>
-            <a href="perfil.html"> <i class="fas fa-arrow-right"></i> perfil </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> perfil </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> favoritos </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> política de privacidade </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> metodos de pagamento </a>

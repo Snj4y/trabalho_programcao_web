@@ -43,6 +43,7 @@
             <a href="index.html">Inicio</a>
             <a href="index.html#featured">Populares</a>
             <a href="index.html#arrivals">Novos</a>
+            <a href="biblioteca.html">Biblioteca</a>
             <a href="index.html#reviews">Reviews</a>
             <a href="index.html#blogs">blogs</a>
         </nav>
@@ -137,29 +138,29 @@
 
                     <div class="gender-group">
                         <div class="gender-input">
-                            <input id="female" type="radio" name="gender">
+                            <input id="female" type="radio" name="gender" value="feminino">
                             <label for="female">Feminino</label>
                         </div>
 
                         <div class="gender-input">
-                            <input id="male" type="radio" name="gender">
+                            <input id="male" type="radio" name="gender" value="masculino">
                             <label for="male">Masculino</label>
                         </div>
 
                         <div class="gender-input">
-                            <input id="others" type="radio" name="gender">
+                            <input id="others" type="radio" name="gender" value= "outros" checked>
                             <label for="others">Outros</label>
                         </div>
 
                         <div class="gender-input">
-                            <input id="none" type="radio" name="gender">
+                            <input id="none" type="radio" name="gender" value="none">
                             <label for="none">Prefiro não dizer</label>
                         </div>
                     </div>
                 </div>
 
                 <div class="continue-button">
-                    <input type="submit" name="submit" id="submit" value="Cadastrar">
+                    <button type="submit" name="submit" id="submit"><a href="#">Continuar</a> </button>
                 </div>
             </form>
         </div>
@@ -183,15 +184,16 @@
         <div class="box">
             <h3>quick links</h3>
             <a href="index.html"> <i class="fas fa-arrow-right"></i> inicio </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> populares </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> novos </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> reviews </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> blogs </a>
+            <a href="index.html#featured"> <i class="fas fa-arrow-right"></i> populares </a>
+            <a href="index.html#arrivals"> <i class="fas fa-arrow-right"></i> novos </a>
+            <a href="biblioteca.html"> <i class="fas fa-arrow-right"></i> biblioteca </a>
+            <a href="index.html#reviews"> <i class="fas fa-arrow-right"></i> reviews </a>
+            <a href="index.html#blogs"> <i class="fas fa-arrow-right"></i> blogs </a>
         </div>
 
         <div class="box">
             <h3>extra links</h3>
-            <a href="#"> <i class="fas fa-arrow-right"></i> perfil </a>
+            <a href="perfil.html"> <i class="fas fa-arrow-right"></i> perfil </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> favoritos </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> política de privacidade </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> metodos de pagamento </a>
@@ -227,21 +229,6 @@
 <div class="loader-container">
     <img src="image/loader-img.gif" alt="">
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
