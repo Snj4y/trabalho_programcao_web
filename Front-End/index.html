@@ -68,17 +68,17 @@
 
     <div id="close-login-btn" class="fas fa-times"></div>
 
-    <form action="">
+    <form action="./BD/testelog.php" method="post">
         <h3>Login</h3>
-        <span>Usuário</span>
-        <input type="email" name="" class="box" placeholder="digite o email" id="">
+        <span>Email</span>
+        <input type="email" name="email" class="box" placeholder="digite o email" id="email">
         <span>Senha</span>
-        <input type="password" name="" class="box" placeholder="digite a senha" id="">
+        <input type="password" name="password" class="box" placeholder="digite a senha" id="password">
         <div class="checkbox">
             <input type="checkbox" name="" id="remember-me">
             <label for="remember-me"> Lembrar-se</label>
         </div>
-        <input type="submit" value="sign in" class="btn">
+        <input type="submit" value="sign in" class="btn" name="submit" id="submit">
         <p>Esqueceu a senha ? <a href="recuperar.html">click aqui</a></p>
         <p>Não tem uma conta ? <a href="cadastro.html">crie uma</a></p>
     </form>

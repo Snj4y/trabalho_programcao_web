@@ -1,27 +1,27 @@
 <?php
     session_start();
     
-    if(isset($_POST['submit']) && !empty($_POST['user']) && !empty($_POST['password']))
+    if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password']))
     {
         include_once('config.php');
-        $user = $_POST['user'];
+        $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $sql = "SELECT * FROM login WHERE nome = '$user' and senha = '$password'";
+        $sql = "SELECT * FROM login WHERE email = '$email' and senha = '$password'";
 
         $result = $conexao->query($sql);
 
         if(mysqli_num_rows($result) < 1)
         {
-            unset($_SESSION['nome']);
+            unset($_SESSION['email']);
             unset($_SESSION['senha']);
-            header('location: login.php');
+            header('location: ../index.html');
         }
         else
         {
-            $_SESSION['user'] = $user;
+            $_SESSION['email'] = $email;
             $_SESSION['password'] = $password;
-            header('location: evolunet.php');
+            header('location: ../tome');
         }
     }
     else
