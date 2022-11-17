@@ -58,12 +58,12 @@
 
     <div class="header-2">
         <nav class="navbar">
-            <a href="index.html">Inicio</a>
-            <a href="index.html#featured">Populares</a>
-            <a href="index.html#arrivals">Novos</a>
+            <a href="index.php">Inicio</a>
+            <a href="index.php#featured">Populares</a>
+            <a href="index.php#arrivals">Novos</a>
             <a href="biblioteca.php">Biblioteca</a>
-            <a href="index.html#reviews">Reviews</a>
-            <a href="index.html#blogs">blogs</a>
+            <a href="index.php#reviews">Reviews</a>
+            <a href="index.php#blogs">blogs</a>
             <?php
             if($_SESSION['role'] == 2){ //Caso o usuário for um autor, aparece o botão que direciona para pagina de adicionar livro
                 echo "<a href= 'autor.php'>Adicionar Livros</a>";
@@ -136,11 +136,11 @@
 <!-- bottom navbar  -->
 
 <nav class="bottom-navbar">
-    <a href="index.html" class="fas fa-home"></a>
-    <a href="index.html#featured" class="fas fa-list"></a>
-    <a href="index.html#arrivals" class="fas fa-tags"></a>
-    <a href="index.html#reviews" class="fas fa-comments"></a>
-    <a href="index.html#blogs" class="fas fa-blog"></a>
+    <a href="index.php" class="fas fa-home"></a>
+    <a href="index.php#featured" class="fas fa-list"></a>
+    <a href="index.php#arrivals" class="fas fa-tags"></a>
+    <a href="index.php#reviews" class="fas fa-comments"></a>
+    <a href="index.php#blogs" class="fas fa-blog"></a>
 </nav>
 
 <!-- login form  -->
@@ -184,12 +184,12 @@
 
         <div class="box">
             <h3>quick links</h3>
-            <a href="index.html"> <i class="fas fa-arrow-right"></i> inicio </a>
-            <a href="index.html#featured"> <i class="fas fa-arrow-right"></i> populares </a>
-            <a href="index.html#arrivals"> <i class="fas fa-arrow-right"></i> novos </a>
-            <a href="biblioteca.html"> <i class="fas fa-arrow-right"></i> biblioteca </a>
-            <a href="index.html#reviews"> <i class="fas fa-arrow-right"></i> reviews </a>
-            <a href="index.html#blogs"> <i class="fas fa-arrow-right"></i> blogs </a>
+            <a href="index.php"> <i class="fas fa-arrow-right"></i> inicio </a>
+            <a href="index.php#featured"> <i class="fas fa-arrow-right"></i> populares </a>
+            <a href="index.php#arrivals"> <i class="fas fa-arrow-right"></i> novos </a>
+            <a href="biblioteca.php"> <i class="fas fa-arrow-right"></i> biblioteca </a>
+            <a href="index.php#reviews"> <i class="fas fa-arrow-right"></i> reviews </a>
+            <a href="index.php#blogs"> <i class="fas fa-arrow-right"></i> blogs </a>
         </div>
 
         <div class="box">

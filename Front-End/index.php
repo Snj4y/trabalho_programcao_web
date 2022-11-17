@@ -37,9 +37,9 @@
             <label for="search-box" class="fas fa-search"></label>
         </form>
 
-        <div class="icons">
+        <div class="icons">        
             <div id="search-btn" class="fas fa-search"></div>
-            <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-heart"></a>
             <div id="login-btn" class="fas fa-user"></div>
         </div>
 

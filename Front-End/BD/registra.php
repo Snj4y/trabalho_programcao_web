@@ -28,7 +28,7 @@
 
             if(mysqli_num_rows($result) < 1){   //Faz a validação para ver se o email não está sendo usado 
                 $result = mysqli_query($conexao,"INSERT INTO login(firstname,lastname,telefone,email,senha,role,gender) VALUES ('$fisrtname','$lastname','$number','$email','$senha','1','$gender')");
-                header('Location: ../index.html');               
+                header('Location: ../index.php');               
             }else{      
                 header('Location: ../cadastro.php');
             }          

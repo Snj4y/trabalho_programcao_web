@@ -15,14 +15,14 @@
         {   
             unset($_SESSION['email']);
             unset($_SESSION['senha']);
-            header('location: ../index.html');  
+            header('location: ../index.php');  
         }
         else
         {   
             $arq = fopen("Log.txt", "a+");              //Gravando as informações de login em arquivo .txt
             date_default_timezone_set('America/Sao_Paulo');
             $agora = date('d/m/Y H:i');
-            fwrite($arq, "Login realizado pelo email: ".$email." ás ".$agora."\n");
+            fwrite($arq, "Login realizado pelo email: ".$email." às ".$agora."\n");
             fclose($arq);
             
             while($user_data = mysqli_fetch_assoc($result)){
@@ -40,6 +40,6 @@
     }
     else
     {
-        header('Location: index.html');
+        header('Location: index.php');
     }
 ?>

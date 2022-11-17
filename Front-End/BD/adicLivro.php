@@ -17,7 +17,7 @@
         $arq = fopen("Log.txt", "a+");              //Gravando as informações de adição de livros em arquivo .txt
             date_default_timezone_set('America/Sao_Paulo');
             $agora = date('d/m/Y H:i');
-            fwrite($arq, "Livro ".$product." adicionado por ".$_SESSION['email']." ás ".$agora."\n");
+            fwrite($arq, "Livro ".$product." adicionado por ".$_SESSION['email']." às ".$agora."\n");
             fclose($arq); 
 
         header('location: ../admin.php');
