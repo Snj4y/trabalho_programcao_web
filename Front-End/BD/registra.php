@@ -30,10 +30,10 @@
                 $result = mysqli_query($conexao,"INSERT INTO login(firstname,lastname,telefone,email,senha,role,gender) VALUES ('$fisrtname','$lastname','$number','$email','$senha','1','$gender')");
                 header('Location: ../index.html');               
             }else{      
-                header('Location: ../cadastro.html');
+                header('Location: ../cadastro.php');
             }          
         }else{
-            header('Location: ../cadastro.html');
+            header('Location: ../cadastro.php');
         }       
     }
 ?>

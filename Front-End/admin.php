@@ -64,6 +64,14 @@
             <a href="biblioteca.php">Biblioteca</a>
             <a href="index.html#reviews">Reviews</a>
             <a href="index.html#blogs">blogs</a>
+            <?php
+            if($_SESSION['role'] == 2){ //Caso o usuário for um autor, aparece o botão que direciona para pagina de adicionar livro
+                echo "<a href= 'autor.php'>Adicionar Livros</a>";
+            }
+            if($_SESSION['role'] == 3){ //Caso o usuário for um administrador, aparece o botão que direciona para página de gerância dos livros
+                echo "<a href= 'admin.php'>Gerenciar Livros</a>";
+            }
+            ?>
         </nav>
     </div>
 
@@ -153,7 +161,7 @@
         </div>
         <input type="submit" value="sign in" class="btn">
         <p>Esqueceu a senha ? <a href="recuperar.html">click aqui</a></p>
-        <p>Não tem uma conta ? <a href="cadastro.html">crie uma</a></p>
+        <p>Não tem uma conta ? <a href="cadastro.php">crie uma</a></p>
     </form>
 
 </div>
