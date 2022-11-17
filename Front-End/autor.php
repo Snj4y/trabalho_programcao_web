@@ -41,7 +41,7 @@
 
     <div class="header-1">
 
-        <a href="#" class="logo"> <i class="fas fa-book"></i> Variety </a>
+        <a href="index.php" class="logo"> <i class="fas fa-book"></i> Variety </a>
 
         <form action="" class="search-form">
             <input type="search" name="" placeholder="Procure aqui..." id="search-box">
