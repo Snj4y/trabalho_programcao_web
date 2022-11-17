@@ -1,15 +1,15 @@
 <?php
     session_start();
     include_once('./BD/config.php');
-    if((!isset($_SESSION['email'])== true)and (!isset($_SESSION['senha'])==true))
+    if((!isset($_SESSION['email'])== true)and (!isset($_SESSION['senha'])==true)) //varifica se está logado
     {
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
         header("location: login.php");
     }
-    /*if($_SESSION['role'] != 3){
-        header("location: index.html");
-    }*/
+    if($_SESSION['role'] != 3){ //verifica se tem a role necessária para acessar a pagina
+       header("location: index.php");
+    }
     $logado = $_SESSION['email'];
 
     $sql = "SELECT * FROM livros";
@@ -61,7 +61,7 @@
             <a href="index.html">Inicio</a>
             <a href="index.html#featured">Populares</a>
             <a href="index.html#arrivals">Novos</a>
-            <a href="biblioteca.html">Biblioteca</a>
+            <a href="biblioteca.php">Biblioteca</a>
             <a href="index.html#reviews">Reviews</a>
             <a href="index.html#blogs">blogs</a>
         </nav>
@@ -102,7 +102,7 @@
                 {
                     echo ("<tr>");
                     echo("<td>". $user_data['idlivros']."</td>");
-                    echo("<td><img src =". $user_data['imagem']." height='100' width='100'></td>");
+                    echo("<td><img src =".$user_data['imagem']." width='240' height='240' ></td>");
                     echo("<td>". $user_data['titulo']."</td>");
                     echo("<td>". $user_data['sinopse']."</td>");
                     echo("<td><a class='btn btn-sm btn-primary' href='editlivro.php?id=$user_data[idlivros]'>

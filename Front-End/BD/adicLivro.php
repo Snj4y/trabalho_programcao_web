@@ -11,7 +11,7 @@
         $new_file_name = uniqid();      
         $extensao = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
         $full_path = move_uploaded_file($imagem["tmp_name"], $path . $new_file_name . "." . $extensao);
-        $path_s = $path . $new_file_name . "." . $extensao;
+        $path_s = "BD/" . $path . $new_file_name . "." . $extensao;
         $result = mysqli_query($conexao,"INSERT INTO livros(titulo,sinopse,imagem) VALUES ('$titulo','$sinopse','$path_s')"); //gravando no banco de dados
 
         $arq = fopen("Log.txt", "a+");              //Gravando as informações de adição de livros em arquivo .txt

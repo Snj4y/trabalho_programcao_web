@@ -12,7 +12,7 @@
         $result = $conexao->query($sql);
         
         if(mysqli_num_rows($result) < 1)
-        {
+        {   
             unset($_SESSION['email']);
             unset($_SESSION['senha']);
             header('location: ../index.html');  
@@ -23,8 +23,15 @@
             date_default_timezone_set('America/Sao_Paulo');
             $agora = date('d/m/Y H:i');
             fwrite($arq, "Login realizado pelo email: ".$email." ás ".$agora."\n");
-            fclose($arq);          
+            fclose($arq);
+            
+            while($user_data = mysqli_fetch_assoc($result)){
+                if($user_data['email'] == $email){
+                    $role = $user_data['role'];
+                }
+            }
 
+            $_SESSION['role'] = $role;
             $_SESSION['email'] = $email;    //Definindo as informações
             $_SESSION['senha'] = $senha;
                                 

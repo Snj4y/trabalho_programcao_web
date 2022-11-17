@@ -13,9 +13,8 @@
         $new_file_name = uniqid();
         $extensao = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
         $full_path = move_uploaded_file($product_image["tmp_name"], $path . $new_file_name . "." . $extensao);
-        $path_s = $path . $new_file_name . "." . $extensao;
-
-        $sqlUpdate = "UPDATE livros SET titulo ='$product_name', sinopse='$product_price', imagem='$product_image' WHERE idlivros='$idlivros'";
+        $path_s = "BD/" . $path . $new_file_name . "." . $extensao;
+        $sqlUpdate = "UPDATE livros SET titulo ='$product_name', sinopse='$product_price', imagem='$path_s' WHERE idlivros='$idlivros'";
 
         $arq = fopen("Log.txt", "a+");              //Gravando as informações de edição de livros em arquivo .txt
         date_default_timezone_set('America/Sao_Paulo');

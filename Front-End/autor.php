@@ -1,16 +1,16 @@
 <?php
     session_start();
     include_once('./BD/config.php');
-    /*if((!isset($_SESSION['email'])== true)and (!isset($_SESSION['senha'])==true))
+    if((!isset($_SESSION['email'])== true)and (!isset($_SESSION['senha'])==true)) 
     {
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
         header("location: login.php");
     }
-    if($_SESSION['role'] != 3){
+    if($_SESSION['role'] != 3 && $_SESSION['role'] != 2){
         header("location: index.html");
-    }*/
-    $logado = $_SESSION['user'];
+    }
+    $logado = $_SESSION['email'];
 
     $sql = "SELECT * FROM livros";
 
