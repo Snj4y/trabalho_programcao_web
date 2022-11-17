@@ -10,11 +10,7 @@
     if($_SESSION['role'] != 3){ //verifica se tem a role necessária para acessar a pagina
        header("location: index.php");
     }
-    $logado = $_SESSION['email'];
-
-    $sql = "SELECT * FROM livros";
-
-    $result = $conexao->query($sql);
+    
 ?>
 
 <!DOCTYPE html>
@@ -116,13 +112,13 @@
 <section class="re">
     <div class="inf">
         <div class="digi">
-            <h1>Logs</h1>
+            <h1 style ="text-align:center; font-size:40px;">LOGS</h1>
         </div>
             <?php                              //Mostrando na tela os registros feitos no arquivo .txt
                 $file = fopen("BD/Log.txt","r");
                 $linha = fgets($file);
                 while($linha){
-                    echo $linha."<br>";
+                    echo "<h1 style = 'font-size:14px;'>".$linha."</h1><br>";
                     $linha = fgets($file);
                 }
             ?>
