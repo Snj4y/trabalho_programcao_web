@@ -90,6 +90,7 @@
             }
             if($_SESSION['role'] == 3){ //Caso o usuário for um administrador, aparece o botão que direciona para página de gerância dos livros
                 echo "<a href= 'admin.php'>Gerenciar Livros</a>";
+                echo "<a href= 'adminlog.php'>Logs</a>";
             }
             ?>
         </nav>
