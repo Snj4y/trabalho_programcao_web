@@ -39,7 +39,6 @@
 
         <div class="icons">
             <div id="search-btn" class="fas fa-search"></div>
-            <a href="#" class="fas fa-heart"></a>
             <div id="login-btn" class="fas fa-user"></div>
         </div>
 

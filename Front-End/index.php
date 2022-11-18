@@ -2,8 +2,8 @@
     session_start();
     if((!isset($_SESSION['email'])== true)and (!isset($_SESSION['senha'])==true)){  //Caso não esteja logado, a role inicia valendo 1
         $_SESSION['role'] = 1;
-    } 
-    
+    }
+       
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +39,6 @@
 
         <div class="icons">        
             <div id="search-btn" class="fas fa-search"></div>
-                <a href="#" class="fas fa-heart"></a>
             <div id="login-btn" class="fas fa-user"></div>
         </div>
 
@@ -95,7 +94,7 @@
             <input type="checkbox" name="" id="remember-me">
             <label for="remember-me"> Lembrar-se</label>
         </div>
-        <input type="submit" name="submit" value="sign in" class="btn">
+        <input id="submitForm"type="submit" name="submit" value="sign in" class="btn">
         <p>Esqueceu a senha ? <a href="recuperar.html">click aqui</a></p>
         <p>Não tem uma conta ? <a href="cadastro.php">crie uma</a></p>
     </form>
@@ -111,7 +110,7 @@
         <div class="content">
             <h3>Plano com 10% de desconto esse mês</h3>
             <p>Leia seus livros preferidos sem nem uma restrição e sem burocracia, e com a oferta desse mês você poderá ter o melhor serviço E-Biblioteca da internet.</p>
-            <a href="embreve.html" class="btn">Assinar agora</a>
+            <a href="embreve.php" class="btn">Assinar agora</a>
         </div>
 
         <div class="swiper books-slider">
@@ -185,7 +184,7 @@
                 </div>
                 <div class="content">
                     <h3>The Witcher</h3>
-                    <a href="embreve.html" class="btn">Ler</a>
+                    <a href="embreve.php" class="btn">Ler</a>
                 </div>
             </div>
 
@@ -200,7 +199,7 @@
                 </div>
                 <div class="content">
                     <h3>Harry Potter</h3>
-                    <a href="embreve.html" class="btn">Ler</a>
+                    <a href="embreve.php" class="btn">Ler</a>
                 </div>
             </div>
 
@@ -215,7 +214,7 @@
                 </div>
                 <div class="content">
                     <h3>IT A coisa</h3>
-                    <a href="embreve.html" class="btn">Ler</a>
+                    <a href="embreve.php" class="btn">Ler</a>
                 </div>
             </div>
 
@@ -230,7 +229,7 @@
                 </div>
                 <div class="content">
                     <h3>A Metamorfose</h3>
-                    <a href="embreve.html" class="btn">Ler</a>
+                    <a href="embreve.php" class="btn">Ler</a>
                 </div>
             </div>
 
@@ -245,7 +244,7 @@
                 </div>
                 <div class="content">
                     <h3>Neuromancer</h3>
-                    <a href="embreve.html" class="btn">Ler</a>
+                    <a href="embreve.php" class="btn">Ler</a>
                 </div>
             </div>
 
@@ -260,7 +259,7 @@
                 </div>
                 <div class="content">
                     <h3>Eu, Robo</h3>
-                    <a href="embreve.html" class="btn">Ler</a>
+                    <a href="embreve.php" class="btn">Ler</a>
                 </div>
             </div>
 
@@ -275,7 +274,7 @@
                 </div>
                 <div class="content">
                     <h3>Outsider</h3>
-                    <a href="embreve.html" class="btn">Ler</a>
+                    <a href="embreve.php" class="btn">Ler</a>
                 </div>
             </div>
 
@@ -290,7 +289,7 @@
                 </div>
                 <div class="content">
                     <h3>Your Name</h3>
-                    <a href="embreve.html" class="btn">Ler</a>
+                    <a href="embreve.php" class="btn">Ler</a>
                 </div>
             </div>
 
@@ -305,7 +304,7 @@
                 </div>
                 <div class="content">
                     <h3>O Vilarejo</h3>
-                    <a href="embreve.html" class="btn">Ler</a>
+                    <a href="embreve.php" class="btn">Ler</a>
                 </div>
             </div>
 
@@ -320,7 +319,7 @@
                 </div>
                 <div class="content">
                     <h3>O Corvo</h3>
-                    <a href="embreve.html" class="btn">Ler</a>
+                    <a href="embreve.php" class="btn">Ler</a>
                 </div>
             </div>
 
@@ -553,7 +552,7 @@
         <h3>recomendação da semana</h3>
         <h1>Vinland Saga</h1>
         <p>Quando criança, Thorfinn, filho do lendário guerreiro viking Thors, vive sem saber o passado do pai, que descobriu após anos no campo de batalha algo mais valioso do que matar seus iguais, viver sua vida de paz. Ao saber os tempos de guerra de seu pai, o garoto se revolta e vai à guerra com ele, mas acaba sendo tarde demais quando reconhece o valor dele. No passado, Thors se viu obrigado a lutar na guerra entre Dinamarca e Inglaterra junto aos Jomsvikings.</p>
-        <a href="embreve.html" class="btn">Ler agora</a>
+        <a href="embreve.php" class="btn">Ler agora</a>
     </div>
 
     <div class="image">
@@ -676,7 +675,7 @@
                 <div class="content">
                     <h3>Bibliotecas vão acabar ?</h3>
                     <p>com a internet ter acesso a livros ficou bem mais fácil e estudo apontam...</p>
-                    <a href="embreve.html" class="btn">Ler mais</a>
+                    <a href="embreve.php" class="btn">Ler mais</a>
                 </div>
             </div>
 
@@ -687,7 +686,7 @@
                 <div class="content">
                     <h3>A leitura é uma arma</h3>
                     <p>Com livros aprendemos diversas coisa e com ela podemos...</p>
-                    <a href="embreve.html" class="btn">Ler mais</a>
+                    <a href="embreve.php" class="btn">Ler mais</a>
                 </div>
             </div>
 
@@ -698,7 +697,7 @@
                 <div class="content">
                     <h3>Livros abrem a imaginação</h3>
                     <p>Livros podem ajudar a pensar em situações que na vida real não aconteceria e ...</p>
-                    <a href="embreve.html" class="btn">Ler mais</a>
+                    <a href="embreve.php" class="btn">Ler mais</a>
                 </div>
             </div>
 
@@ -709,7 +708,7 @@
                 <div class="content">
                     <h3>Como os livros te ajudam</h3>
                     <p>A Leitura pode te ajudar a melhorar em vários campos com escrita até dicção, e com isso...</p>
-                    <a href="embreve.html" class="btn">Ler mais</a>
+                    <a href="embreve.php" class="btn">Ler mais</a>
                 </div>
             </div>
 
@@ -720,7 +719,7 @@
                 <div class="content">
                     <h3>Paz na leitura</h3>
                     <p>Estudos apontam que quem le tem mais paciência e que tenden a ...</p>
-                    <a href="embreve.html" class="btn">Ler mais</a>
+                    <a href="embreve.php" class="btn">Ler mais</a>
                 </div>
             </div>
 

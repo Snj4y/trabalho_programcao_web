@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include_once('./BD/config.php');
     if((!isset($_SESSION['email'])== true)and (!isset($_SESSION['senha'])==true)) //Verifica se o usuário está logado
     {
         unset($_SESSION['email']);
@@ -41,7 +42,6 @@
 
         <div class="icons">
             <div id="search-btn" class="fas fa-search"></div>
-            <a href="#" class="fas fa-heart"></a>
             <div id="login-btn" class="fas fa-user"></div>
         </div>
 
@@ -52,7 +52,7 @@
             <a href="index.php">Inicio</a>
             <a href="index.php#featured">Populares</a>
             <a href="index.php#arrivals">Novos</a>
-            <a href="#">Biblioteca</a>
+            <a href="biblioteca.php">Biblioteca</a>
             <a href="index.php#reviews">Reviews</a>
             <a href="index.php#blogs">blogs</a>
             <?php
@@ -103,313 +103,41 @@
     </form>
 
 </div>
+<?php
+    $sql = "SELECT * FROM livros";
 
+    $result = $conexao->query($sql);
+?>
 <section class="bg">
     <div class="containerp">
-        
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/01.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>The Witcher</h3>
-            <p>Enquanto Yennefer permanece prisioneira e Geralt passa o inverno...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
+        <style>
+        .containerp{
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+        .cardp .card-image{
+            left: 30%;
+        }    
+        </style>
+        <?php
+        while($user_data = mysqli_fetch_assoc($result)){
+            echo "<div class='cardp'>
+                    <div class='card-image'>
+                        <img src='".$user_data['imagem']."' alt='...'>
+                        <i class='bx bx-star'></i>
+                    </div>
+                    <div class='card-content'>
+                        <h3>".$user_data['titulo']."</h3>
+                        <p>".$user_data['sinopse']."</p>
+                        <a href='embreve.php'><button hrefclass='add-to-cart'>
+                            Ler
+                        </button></a>
+                    </div>
+                </div>";           
+        }
+            ?>
     </div> 
-    
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/02.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>Harry Potter</h3>
-            <p>Harry Potter é um garoto órfão que vive infeliz com seus tios... </p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div>
-
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/03.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>IT, a coisa</h3>
-            <p>Um grupo de crianças se une para investigar o misterioso...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div>
-</section>
-
-<section class="bg">
-    <div class="containerp">
-        
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/04.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>A Metamorfose</h3>
-            <p>A metamorfose (Die Verwandlung, em alemão) é uma novela...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div> 
-    
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/05.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>Neuromancer</h3>
-            <p>Considerada a obra precursora do movimento cyberpunk e um...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div>
-
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/06.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>Eu, robo</h3>
-            <p>Um dos maiores clássicos da literatura de ficção científica. Eu...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div>
-</section>
-
-<section class="bg">
-    <div class="containerp">
-        
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/07.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>Outsider</h3>
-            <p>O corpo de um menino de onze anos é encontrado abandonado no...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div> 
-    
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/08.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>Your Name</h3>
-            <p>Mitsuha é a filha do prefeito de uma pequena cidade, mas sonha em ...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div>
-
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/09.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>O Vilarejo</h3>
-            <p>O Vilarejo narra a história de um pequeno povoado abandonado e ...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div>
-</section>
-
-<section class="bg">
-    <div class="containerp">
-        
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/10.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>O Corvo</h3>
-            <p>O poema trata da visita misteriosa de um corvo falante a um homem...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div> 
-    
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/11.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>One-punch Man</h3>
-            <p>One Punch-Man conta a história de Saitama, um super-herói extremamente...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div>
-
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/12.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>Chainsaw Man</h3>
-            <p>Chainsaw Man acompanha a história do jovem Denji, que ficou endividado...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div>
-</section>
-
-<section class="bg">
-    <div class="containerp">
-        
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/13.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>Mushoku Tensei</h3>
-            <p>Um homem de 34 anos, desempregado e sem perspectivas, é atropelado por...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div> 
-    
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/14.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>V de Vingança</h3>
-            <p>Após uma guerra mundial, a Inglaterra é ocupada por um governo fascista...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div>
-
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/15.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>O Paciente</h3>
-            <p>conta suas experiências como médico residente em um sombrio...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div>
-</section>
-
-<section class="bg">
-    <div class="containerp">
-        
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/16.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>Fullmetal Achemist</h3>
-            <p>Os irmãos Edward e Al Elric praticam o tabu da transmutação humana...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div> 
-    
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/17.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>Psicose</h3>
-            <p>Psicose conta a história de Marion Crane, que foge após roubar o dinheiro...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div>
-
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/18.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>Attack on Titan</h3>
-            <p>Para escapar dos titãs, gigantes devoradores de homens, a humanidade...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div>
-</section>
-
-<section class="bg">
-    <div class="containerp">
-        
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/19.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>Hunter x Hunter</h3>
-            <p>A série conta a história de Gon Freecss, um garoto de 12 anos que pretende...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div> 
-    
-    <div class="cardp">
-        <div class="card-image">
-            <img src="image/20.png" alt="...">
-            <i class="bx bx-star"></i>
-        </div>
-        <div class="card-content">
-            <h3>A arte da guerra</h3>
-            <p>Aborda a importância de avaliar e planejar, tendo conhecimento de cinco fatores...</p>
-            <button class="add-to-cart">
-                Ler
-            </button>
-        </div>
-    </div>
 </section>
 
 <section class="footer">
@@ -431,7 +159,7 @@
             <a href="index.php"> <i class="fas fa-arrow-right"></i> inicio </a>
             <a href="index.php#featured"> <i class="fas fa-arrow-right"></i> populares </a>
             <a href="index.php#arrivals"> <i class="fas fa-arrow-right"></i> novos </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> biblioteca </a>
+            <a href="biblioteca.php"> <i class="fas fa-arrow-right"></i> biblioteca </a>
             <a href="index.php#reviews"> <i class="fas fa-arrow-right"></i> reviews </a>
             <a href="index.php#blogs"> <i class="fas fa-arrow-right"></i> blogs </a>
         </div>

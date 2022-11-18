@@ -8,9 +8,7 @@
         $senha = $_POST['password'];
 
         $sql = "SELECT * FROM login WHERE email = '$email' and senha = '$senha'";
-
-        $result = $conexao->query($sql);
-        
+        $result = $conexao->query($sql);        
         if(mysqli_num_rows($result) < 1)
         {   
             unset($_SESSION['email']);
@@ -34,7 +32,6 @@
             $_SESSION['role'] = $role;
             $_SESSION['email'] = $email;    //Definindo as informações
             $_SESSION['senha'] = $senha;
-                                
             header('location: ../biblioteca.php');
         }
     }

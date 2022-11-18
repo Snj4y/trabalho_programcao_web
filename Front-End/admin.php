@@ -5,7 +5,7 @@
     {
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
-        header("location: login.php");
+        header("location: index.php");
     }
     if($_SESSION['role'] != 3){ //verifica se tem a role necessária para acessar a pagina
        header("location: index.php");
@@ -50,7 +50,6 @@
 
         <div class="icons">
             <div id="search-btn" class="fas fa-search"></div>
-            <a href="#" class="fas fa-heart"></a>
             <div id="login-btn" class="fas fa-user"></div>
         </div>
 
