@@ -95,9 +95,9 @@
  
        <form action="./BD/adicLivro.php" method="post" enctype="multipart/form-data">
           <h3>Adicionar um novo Livro</h3>
-          <input type="text" placeholder="Insira o Titulo do livro" name="product_name" class="box">
-          <input type="text" placeholder="Insira a sinopse" name="product_price" class="box">
-          <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
+          <input type="text" placeholder="Insira o Titulo do livro" name="product_name" class="box" require>
+          <input type="text" placeholder="Insira a sinopse" name="product_price" class="box" minlength="30" require>
+          <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box" require>
           <input type="submit" class="btn" name="submit" value="add produto">
        </form>
  
