@@ -32,7 +32,7 @@
             $_SESSION['role'] = $role;
             $_SESSION['email'] = $email;    //Definindo as informações
             $_SESSION['senha'] = $senha;
-            header('location: ../biblioteca.php');
+            header('location: ../index.php');
         }
     }
     else

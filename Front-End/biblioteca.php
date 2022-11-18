@@ -7,6 +7,16 @@
         unset($_SESSION['senha']);
         header("location: index.php");
     }
+    if(!empty($_GET['search']))
+    {
+        $data = $_GET['search'];
+        $sql = "SELECT * FROM livros WHERE titulo LIKE '%$data%' ORDER BY titulo DESC";
+    }
+    else
+    {
+       $sql = "SELECT * FROM livros ORDER BY titulo"; 
+    }
+    $result = $conexao->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +32,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.php">
 
 </head>
 <body>
@@ -36,13 +46,16 @@
         <a href="index.php" class="logo"> <i class="fas fa-book"></i> Variety </a>
 
         <form action="" class="search-form">
-            <input type="search" name="" placeholder="Procure aqui..." id="search-box">
-            <label for="search-box" class="fas fa-search"></label>
+            <input type="search" name="search" placeholder="Procure aqui..." id="search">
+            <button onclick="searchdata()">
+                <label for="search-box" class="fas fa-search"></label>
+            </button>
         </form>
 
         <div class="icons">
             <div id="search-btn" class="fas fa-search"></div>
             <div id="login-btn" class="fas fa-user"></div>
+            <div id="logout-btn" class="fas fa-skating"></div>
         </div>
 
     </div>
@@ -103,11 +116,6 @@
     </form>
 
 </div>
-<?php
-    $sql = "SELECT * FROM livros";
-
-    $result = $conexao->query($sql);
-?>
 <section class="bg">
     <div class="containerp">
         <style>
@@ -208,5 +216,19 @@
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
 
+<script> 
+    var search = document.addEventListener("keydown", function(event)
+    {
+        if(event.key === "Enter")
+        {
+            searchdata();
+        }
+    });
+
+    function searchdata()
+    {
+        window.location = 'biblioteca.php?search='+ search.value;
+    }
+</script>
 </body>
 </html>
