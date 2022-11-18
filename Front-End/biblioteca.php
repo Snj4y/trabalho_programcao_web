@@ -16,7 +16,7 @@
     {
        $sql = "SELECT * FROM livros ORDER BY titulo"; 
     }
-    $result = $conexao->query($sql);
+    $result = $conexao->query($sql); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -126,9 +126,16 @@
         }
         .cardp .card-image{
             left: 30%;
-        }    
+        }
         </style>
         <?php
+        if(mysqli_num_rows($result) < 1)
+        {   
+        echo "<script>
+            alert('NENHUM LIVRO ENCONTRADO');
+            window.location.assign('./biblioteca.php')
+        </script>";
+        }
         while($user_data = mysqli_fetch_assoc($result)){
             echo "<div class='cardp'>
                     <div class='card-image'>
@@ -216,19 +223,5 @@
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
 
-<script> 
-    var search = document.addEventListener("keydown", function(event)
-    {
-        if(event.key === "Enter")
-        {
-            searchdata();
-        }
-    });
-
-    function searchdata()
-    {
-        window.location = 'biblioteca.php?search='+ search.value;
-    }
-</script>
 </body>
 </html>

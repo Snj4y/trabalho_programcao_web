@@ -162,3 +162,20 @@ var swiper = new Swiper(".blogs-slider", {
     },
   },
 });
+
+var search = document.addEventListener("keydown", function(event)
+    {
+        if(event.key === "Enter")
+        {
+            searchdata();
+        }
+    });
+
+
+var searchdata = () => {
+  window.location = 'biblioteca.php?search='+ search.value;
+}
+
+document.querySelector('#search-btn').onclick= () => {
+  searchdata();
+}
