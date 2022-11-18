@@ -1,7 +1,7 @@
 <?php
     session_start();
     include_once('./BD/config.php');
-    if((!isset($_SESSION['email'])== true)and (!isset($_SESSION['senha'])==true)) //varifica se está logado
+    /*if((!isset($_SESSION['email'])== true)and (!isset($_SESSION['senha'])==true)) //varifica se está logado
     {
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
@@ -9,11 +9,17 @@
     }
     if($_SESSION['role'] != 3){ //verifica se tem a role necessária para acessar a pagina
        header("location: index.php");
-    }
+    }*/
     $logado = $_SESSION['email'];
-
-    $sql = "SELECT * FROM livros";
-
+    if(!empty($_GET['search']))
+    {
+        $data = $_GET['search'];
+        $sql = "SELECT * FROM livros WHERE idlivros LIKE '%$data%' or titulo LIKE '%$data%' ORDER BY idlivros DESC";
+    }
+    else
+    {
+       $sql = "SELECT * FROM livros ORDER BY titulo"; 
+    }
     $result = $conexao->query($sql);
 ?>
 <!DOCTYPE html>
@@ -42,6 +48,13 @@
     <div class="header-1">
 
         <a href="index.php" class="logo"> <i class="fas fa-book"></i> Variety </a>
+
+        <form action="" class="search-form">
+            <input type="search" name="search" placeholder="Procure aqui..." id="search">
+            <button onclick="searchdata()">
+                <label for="search-box" class="fas fa-search"></label>
+            </button>
+        </form>
 
         <div class="icons">
             <div id="search-btn" class="fas fa-search"></div>
