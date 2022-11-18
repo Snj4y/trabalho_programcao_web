@@ -1,7 +1,45 @@
 <?php
     session_start();
-?>
+    include_once('./BD/config.php');
+    if((!isset($_SESSION['email'])== true)and (!isset($_SESSION['senha'])==true)) //Verifica se está logado
+    {
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
+        header("location: index.php");
+    }
+    if($_SESSION['role'] != 3){ //verifica se tem a role necessária para acessar a pagina
+        header("location: index.php");
+     }
+     
+    $logado = $_SESSION['email'];
 
+    if(!empty($_GET['id']))
+    {
+        $idlogin = $_GET['id'];
+
+        $sqlSelect = "SELECT * FROM login WHERE idlogin=$idlogin";
+
+        $result = $conexao->query($sqlSelect);
+
+        if($result->num_rows >0)
+        {
+            while($user_data = mysqli_fetch_assoc($result))
+            {
+                $firstname = $user_data['firstname'];
+                $lastname = $user_data['lastname'];
+                $telefone = $user_data['telefone'];
+                $email = $user_data['email'];
+                $senha = $user_data['senha'];
+                $role = $user_data['role'];
+                $gender = $user_data['gender'];
+            }        
+        }
+        else
+        {
+            header('Location : index.php');
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +81,7 @@
             <a href="index.php">Inicio</a>
             <a href="index.php#featured">Populares</a>
             <a href="index.php#arrivals">Novos</a>
-            <a href="biblioteca.php">Biblioteca</a>
+            <a href="biblioteca.html">Biblioteca</a>
             <a href="index.php#reviews">Reviews</a>
             <a href="index.php#blogs">blogs</a>
             <?php
@@ -62,7 +100,25 @@
 </header>
 
 <!-- header section ends -->
-
+<section class="admbg">
+    <div class="containeradm">
+        <div class="admin-product-form-container">
+ 
+            <form action="./BD/SaveEditUsers.php" method="post" enctype="multipart/form-data">
+                <h3>Editar Usuários</h3>
+                <input type="hidden" name="idlogin" value="<?php echo $idlogin?>">
+                <input type="hidden" name="firstname" value="<?php echo $firstname?>">
+                <input type="hidden" name="lastname" value="<?php echo $lastname?>">
+                <input type="hidden" name="telefone" value="<?php echo $telefone?>">
+                <input type="text" name="email" class="box" value="<?php echo $email?>">
+                <input type="hidden" name="senha" value="<?php echo $senha?>">
+                <input type="text" name="role" class="box" value="<?php echo $role?>">
+                <input type="hidden" name="gender" value="<?php echo $gender?>">
+                <input type="submit" class="btn" name="update" value="Edit user">
+            </form>
+        </div>
+    </div>
+</section>
 <!-- bottom navbar  -->
 
 <nav class="bottom-navbar">
@@ -90,19 +146,14 @@
             <label for="remember-me"> Lembrar-se</label>
         </div>
         <input type="submit" value="sign in" class="btn">
-        <p>Esqueceu a senha ? <a href="#">click aqui</a></p>
+        <p>Esqueceu a senha ? <a href="recuperar.html">click aqui</a></p>
         <p>Não tem uma conta ? <a href="cadastro.php">crie uma</a></p>
     </form>
 
 </div>
-<section class="re">
-    <div class="inf">
-        <div class="digi">
-            <h1 style="line-height:1.3em; text-align:center; font-size:95px;"><font face="Arial">EM</font></h1>
-            <h1 style="line-height:1.3em; text-align:center; font-size:95px;"><font face ="Arial">BREVE</font></h1>
-        </div>      
-    </div>
-</section>
+
+
+
 <section class="footer">
 
     <div class="box-container">
@@ -122,14 +173,14 @@
             <a href="index.php"> <i class="fas fa-arrow-right"></i> inicio </a>
             <a href="index.php#featured"> <i class="fas fa-arrow-right"></i> populares </a>
             <a href="index.php#arrivals"> <i class="fas fa-arrow-right"></i> novos </a>
-            <a href="biblioteca.php"> <i class="fas fa-arrow-right"></i> biblioteca </a>
+            <a href="biblioteca.html"> <i class="fas fa-arrow-right"></i> biblioteca </a>
             <a href="index.php#reviews"> <i class="fas fa-arrow-right"></i> reviews </a>
             <a href="index.php#blogs"> <i class="fas fa-arrow-right"></i> blogs </a>
         </div>
 
         <div class="box">
             <h3>extra links</h3>
-            <a href="perfil.php"> <i class="fas fa-arrow-right"></i> perfil </a>
+            <a href="perfil.html"> <i class="fas fa-arrow-right"></i> perfil </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> favoritos </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> política de privacidade </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> metodos de pagamento </a>

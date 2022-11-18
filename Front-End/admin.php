@@ -1,7 +1,7 @@
 <?php
     session_start();
     include_once('./BD/config.php');
-    /*if((!isset($_SESSION['email'])== true)and (!isset($_SESSION['senha'])==true)) //varifica se está logado
+    if((!isset($_SESSION['email'])== true)and (!isset($_SESSION['senha'])==true)) //varifica se está logado
     {
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
@@ -9,7 +9,7 @@
     }
     if($_SESSION['role'] != 3){ //verifica se tem a role necessária para acessar a pagina
        header("location: index.php");
-    }*/
+    }
     $logado = $_SESSION['email'];
     if(!empty($_GET['search']))
     {
@@ -78,6 +78,7 @@
             }
             if($_SESSION['role'] == 3){ //Caso o usuário for um administrador, aparece o botão que direciona para página de gerância dos livros
                 echo "<a href= 'admin.php'>Gerenciar Livros</a>";
+                echo "<a href= 'adminusers.php'>Gerenciar Usuários</a>";
                 echo "<a href= 'adminlog.php'>Logs</a>";
             }
             ?>

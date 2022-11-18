@@ -62,6 +62,7 @@
             }
             if($_SESSION['role'] == 3){ //Caso o usuário for um administrador, aparece o botão que direciona para página de gerância dos livros
                 echo "<a href= 'admin.php'>Gerenciar Livros</a>";
+                echo "<a href= 'adminusers.php'>Gerenciar Usuários</a>";
                 echo "<a href= 'adminlog.php'>Logs</a>";
             }
             ?>
@@ -116,6 +117,7 @@
                     echo "<h1 style = 'font-size:14px;'>".$linha."</h1><br>";
                     $linha = fgets($file);
                 }
+                fclose($file);
             ?>
         <div>
             

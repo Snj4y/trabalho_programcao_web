@@ -1,7 +1,27 @@
 <?php
     session_start();
+    include_once('./BD/config.php');
+    if((!isset($_SESSION['email'])== true)and (!isset($_SESSION['senha'])==true)) //varifica se está logado
+    {
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
+        header("location: index.php");
+    }
+    if($_SESSION['role'] != 3){ //verifica se tem a role necessária para acessar a pagina
+       header("location: index.php");
+    }
+    $logado = $_SESSION['email'];
+    if(!empty($_GET['search']))
+    {
+        $data = $_GET['search'];
+        $sql = "SELECT * FROM login WHERE idlogin LIKE '%$data%' or email LIKE '%$data%' ORDER BY idlogin DESC";
+    }
+    else
+    {
+       $sql = "SELECT * FROM login ORDER BY idlogin ASC"; 
+    }
+    $result = $conexao->query($sql);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +49,12 @@
 
         <a href="index.php" class="logo"> <i class="fas fa-book"></i> Variety </a>
 
+        <form action="" class="search-form">
+            <input type="search" name="search" placeholder="Procure aqui..." id="search">
+            <button onclick="searchdata()">
+                <label for="search-box" class="fas fa-search"></label>
+            </button>
+        </form>
 
         <div class="icons">
             <div id="search-btn" class="fas fa-search"></div>
@@ -62,7 +88,55 @@
 </header>
 
 <!-- header section ends -->
+<section class="admbg">
+    <div class="containeradm">
 
+    <div class="admin-product-form-container">
+
+        <h3>Editar Usuários</h3>
+ 
+    </div>
+ 
+    <div class="product-display">
+       <table class="product-display-table">
+          <thead>
+          <tr>
+             <th>ID</th>
+             <th>Email</th>
+             <th>Role</th>
+             <th>Ação</th>
+          </tr>
+          </thead>
+          
+          <?php
+                while($user_data = mysqli_fetch_assoc($result))
+                {   
+                    if($user_data['email'] != $_SESSION['email']){
+                        echo ("<tr>");
+                        echo("<td>". $user_data['idlogin']."</td>");
+                        echo("<td>". $user_data['email']."</td>");
+                        echo("<td>". $user_data['role']."</td>");
+                        echo("<td><a class='btn btn-sm btn-primary' href='editusers.php?id=$user_data[idlogin]'>
+                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'>
+                        <path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/>
+                            </svg>
+                        </a>
+                            <a class='btn btn-sm btn-danger' href='BD/deleteusers.php?id=$user_data[idlogin]' title='Deletar'>
+                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
+                                    <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
+                                    <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
+                                </svg>
+                            </a>
+                        </td>");
+                        echo("<tr>");
+                    }                   
+                }
+            ?>
+       </table>
+    </div>
+ 
+    </div>
+</section>
 <!-- bottom navbar  -->
 
 <nav class="bottom-navbar">
@@ -90,19 +164,14 @@
             <label for="remember-me"> Lembrar-se</label>
         </div>
         <input type="submit" value="sign in" class="btn">
-        <p>Esqueceu a senha ? <a href="#">click aqui</a></p>
+        <p>Esqueceu a senha ? <a href="recuperar.html">click aqui</a></p>
         <p>Não tem uma conta ? <a href="cadastro.php">crie uma</a></p>
     </form>
 
 </div>
-<section class="re">
-    <div class="inf">
-        <div class="digi">
-            <h1 style="line-height:1.3em; text-align:center; font-size:95px;"><font face="Arial">EM</font></h1>
-            <h1 style="line-height:1.3em; text-align:center; font-size:95px;"><font face ="Arial">BREVE</font></h1>
-        </div>      
-    </div>
-</section>
+
+
+
 <section class="footer">
 
     <div class="box-container">
@@ -129,7 +198,7 @@
 
         <div class="box">
             <h3>extra links</h3>
-            <a href="perfil.php"> <i class="fas fa-arrow-right"></i> perfil </a>
+            <a href="perfil.html"> <i class="fas fa-arrow-right"></i> perfil </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> favoritos </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> política de privacidade </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> metodos de pagamento </a>
