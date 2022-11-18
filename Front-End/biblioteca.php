@@ -7,6 +7,16 @@
         unset($_SESSION['senha']);
         header("location: index.php");
     }
+    if(!empty($_GET['search']))
+    {
+        $data = $_GET['search'];
+        $sql = "SELECT * FROM livros WHERE titulo LIKE '%$data%' ORDER BY titulo DESC";
+    }
+    else
+    {
+       $sql = "SELECT * FROM livros ORDER BY titulo"; 
+    }
+    $result = $conexao->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,8 +46,10 @@
         <a href="index.php" class="logo"> <i class="fas fa-book"></i> Variety </a>
 
         <form action="" class="search-form">
-            <input type="search" name="" placeholder="Procure aqui..." id="search-box">
-            <label for="search-box" class="fas fa-search"></label>
+            <input type="search" name="search" placeholder="Procure aqui..." id="search">
+            <button onclick="searchdata()">
+                <label for="search-box" class="fas fa-search"></label>
+            </button>
         </form>
 
         <div class="icons">
@@ -103,11 +115,6 @@
     </form>
 
 </div>
-<?php
-    $sql = "SELECT * FROM livros";
-
-    $result = $conexao->query($sql);
-?>
 <section class="bg">
     <div class="containerp">
         <style>
@@ -208,5 +215,19 @@
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
 
+<script> 
+    var search = document.addEventListener("keydown", function(event)
+    {
+        if(event.key === "Enter")
+        {
+            searchdata();
+        }
+    });
+
+    function searchdata()
+    {
+        window.location = 'biblioteca.php?search='+ search.value;
+    }
+</script>
 </body>
 </html>
