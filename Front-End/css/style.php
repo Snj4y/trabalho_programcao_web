@@ -1,3 +1,5 @@
+<?php header("Content-type: text/css"); ?>
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
 :root{
@@ -1358,6 +1360,9 @@ button img{
     }
 
 }
-#logado{
-    display:none;
+#login-btn{
+    display: <?php echo $_COOKIE['btnLogin']?>;
+}
+#logout-btn{
+    display: <?php echo $_COOKIE['btnLogout']?>;
 }

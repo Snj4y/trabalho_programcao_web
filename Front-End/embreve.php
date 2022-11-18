@@ -1,11 +1,5 @@
 <?php
     session_start();
-    if((!isset($_SESSION['email'])== true)and (!isset($_SESSION['senha'])==true)) //Verifica se o usuário está logado
-    {
-        unset($_SESSION['email']);
-        unset($_SESSION['senha']);
-        header("location: index.php");
-    }
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.php">
 
 </head>
 <body>
@@ -35,14 +29,11 @@
 
         <a href="index.php" class="logo"> <i class="fas fa-book"></i> Variety </a>
 
-        <form action="" class="search-form">
-            <input type="search" name="" placeholder="Procure aqui..." id="search-box">
-            <label for="search-box" class="fas fa-search"></label>
-        </form>
 
         <div class="icons">
             <div id="search-btn" class="fas fa-search"></div>
             <div id="login-btn" class="fas fa-user"></div>
+            <div id="logout-btn" class="fas fa-skating"></div>
         </div>
 
     </div>

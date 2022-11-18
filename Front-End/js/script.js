@@ -14,6 +14,10 @@ document.querySelector('#close-login-btn').onclick = () =>{
   loginForm.classList.remove('active');
 }
 
+document.querySelector("#logout-btn").onclick = () => {
+  window.location.assign('./BD/sair.php')
+}
+
 window.onscroll = () =>{
 
   searchForm.classList.remove('active');
